@@ -171,7 +171,7 @@ func ionicVersion() (string, error) {
 	cmd := command.New("ionic", "-v")
 	out, err := cmd.RunAndReturnTrimmedCombinedOutput()
 	if err != nil {
-		return "", err
+		return "", fmt.Errorf("out: %s, err: %s", out, err)
 	}
 
 	// fix for ionic-cli intercative version output: `[1000D[K3.2.0`
@@ -189,7 +189,7 @@ func ionicVersion() (string, error) {
 		return "", err
 	}
 
-	return "", fmt.Errorf("failed to get ionic version")
+	return "", fmt.Errorf("failed to parse ionic version from: %s", out)
 }
 
 func cordovaVersion() (string, error) {
