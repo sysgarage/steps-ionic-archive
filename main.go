@@ -444,6 +444,8 @@ func main() {
 			}
 		}
 		// ---
+	} else {
+		log.Warnf("ios output dir (%s) does not exist", iosOutputDir)
 	}
 
 	androidOutputDirExist := false
@@ -468,6 +470,8 @@ func main() {
 				log.Donef("The apk path is now available in the Environment Variable: %s (value: %s)", apkPathEnvKey, exportedPth)
 			}
 		}
+	} else {
+		log.Warnf("android output dir (%s) does not exist", androidOutputDir)
 	}
 
 	if !iosOutputDirExist && !androidOutputDirExist {
