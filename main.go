@@ -338,6 +338,7 @@ func main() {
 		}
 	}
 
+	builder.SetPlatforms("ios@3.9.0")
 	platformAddCmd := builder.PlatformCommand("add")
 	platformAddCmd.SetStdout(os.Stdout)
 	platformAddCmd.SetStderr(os.Stderr)
@@ -348,6 +349,7 @@ func main() {
 	if err := platformAddCmd.Run(); err != nil {
 		fail("ionic failed, error: %s", err)
 	}
+	builder.SetPlatforms(platforms...)
 
 	// ionic build
 	fmt.Println()
