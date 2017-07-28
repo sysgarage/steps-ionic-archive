@@ -78,7 +78,7 @@ func (configs ConfigsModel) validate() error {
 	}
 
 	if err := input.ValidateWithOptions(configs.Platform, "ios,android", "ios", "android"); err != nil {
-		// return fmt.Errorf("Platform: %s", err)
+		return fmt.Errorf("Platform: %s", err)
 	}
 
 	if err := input.ValidateIfNotEmpty(configs.Configuration); err != nil {
