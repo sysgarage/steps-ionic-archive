@@ -168,7 +168,7 @@ func npmInstall(isGlobal bool, pkg ...string) error {
 }
 
 func updatePlatform() error {
-  cmdPlatformUpdate := command.New("ionic update ios@4.4.0")
+  cmdPlatformUpdate := command.New("ionic", "update ios@4.4.0")
 	if out, err := cmdPlatformUpdate.RunAndReturnTrimmedCombinedOutput(); err != nil {
 		return fmt.Errorf("command failed, output: %s, error: %s", out, err)
 	}
