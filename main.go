@@ -168,8 +168,11 @@ func npmInstall(isGlobal bool, pkg ...string) error {
 }
 
 func updatePlatform() error {
-  cmdPlatformUpdate := command.New("ionic", "update ios@4.4.0")
-	if out, err := cmdPlatformUpdate.RunAndReturnTrimmedCombinedOutput(); err != nil {
+  args := []string{"update"}
+	args = append(args, "cordova@4.4.0")
+	cmd := command.New("ionic", args...)
+  log.Donef("$ %s", cmd.PrintableCommandArgs())
+	if out, err := cmd.RunAndReturnTrimmedCombinedOutput(); err != nil {
 		return fmt.Errorf("command failed, output: %s, error: %s", out, err)
 	}
   return nil
