@@ -350,8 +350,13 @@ func main() {
 		fail("ionic failed, error: %s", err)
 	}
 	builder.SetPlatforms(platforms...)
+	// cordova update
+	fmt.Println()
+	log.Infof("Updating project")
 	cmdPlatformUpdate := command.New("ionic update ios@4.4.0")
-	cmdPlatformUpdate.RunAndReturnTrimmedCombinedOutput()
+	if out, err := cmdPlatformUpdate.RunAndReturnTrimmedCombinedOutput(); err != nil {
+		return fmt.Errorf("command failed, output: %s, error: %s", out, err)
+	}
 
 	// ionic build
 	fmt.Println()
