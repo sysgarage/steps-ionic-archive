@@ -168,7 +168,8 @@ func npmInstall(isGlobal bool, pkg ...string) error {
 }
 
 func updatePlatform() error {
-  args := []string{"update"}
+  args := []string{"platform"}
+  args = append(args, "update")
 	args = append(args, "cordova@4.4.0")
 	cmd := command.New("ionic", args...)
   log.Donef("$ %s", cmd.PrintableCommandArgs())
