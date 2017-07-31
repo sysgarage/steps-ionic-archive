@@ -350,7 +350,7 @@ func main() {
 		}
 	}
 
-	builder.SetPlatforms("ios@4.4.0")
+	builder.SetPlatforms("ios@3.9.2")
 	platformAddCmd := builder.PlatformCommand("add")
 	platformAddCmd.SetStdout(os.Stdout)
 	platformAddCmd.SetStderr(os.Stderr)
@@ -363,11 +363,11 @@ func main() {
 	}
 	builder.SetPlatforms(platforms...)
 	// cordova update
-	fmt.Println()
-	log.Infof("Updating project")
-  if err := updatePlatform(); err != nil {
-    fail(err.Error())
-  }
+	// fmt.Println()
+	// log.Infof("Updating project")
+  // if err := updatePlatform(); err != nil {
+  //   fail(err.Error())
+  // }
 
 	// ionic build
 	fmt.Println()
