@@ -350,7 +350,7 @@ func main() {
 		}
 	}
 
-	builder.SetPlatforms("ios@3.9.0")
+	builder.SetPlatforms("ios@4.1.1")
 	platformAddCmd := builder.PlatformCommand("add")
 	platformAddCmd.SetStdout(os.Stdout)
 	platformAddCmd.SetStderr(os.Stderr)
